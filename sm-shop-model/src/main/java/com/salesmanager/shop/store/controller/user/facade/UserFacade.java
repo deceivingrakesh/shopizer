@@ -31,11 +31,11 @@ public interface UserFacade {
   /**
    * Find user by id
    * @param id
-   * @param storeCode
+   * @param merchant
    * @param lang
    * @return
    */
-  ReadableUser findById(Long id, String storeCode, Language lang);
+  ReadableUser findById(Long id, MerchantStore store, Language lang);
 
   /**
    * Creates a User
@@ -62,6 +62,14 @@ public interface UserFacade {
    * @throws Exception
    */
   boolean authorizedStore(String userName, String merchantStoreCode);
+  
+  
+  /**
+   * Method to be used in argument resolver.
+   * @param store
+   * @return
+   */
+  boolean authorizeStore(MerchantStore store, String path);
   
   /**
    * Determines if a user is in a specific group

@@ -424,6 +424,11 @@ public class ShoppingCartFacadeImpl
         {
             return null;
         }
+        
+        //if cart has been completed return null
+        if(cart.getOrderId() != null && cart.getOrderId().longValue() > 0) {
+        	return null;
+        }
 
         LOG.info( "Cart model found." );
 
